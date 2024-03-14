@@ -51,7 +51,7 @@ module.exports = {
             );
 
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No thought found with this id!' }); // Handle not found scenario
             }
 
             res.json(thought); // Send the updated thought as a JSON response
@@ -67,7 +67,7 @@ module.exports = {
             const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No thought found with this id!' }); // Handle not found scenario
             }
 
             await Thought.deleteMany({ _id: { $in: thought.reactions } });
@@ -88,7 +88,7 @@ module.exports = {
             );
 
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No thought found with this id!' }); // Handle not found scenario
             }
 
             res.json(thought); // Send the updated thought as a JSON response
@@ -108,7 +108,7 @@ module.exports = {
             );
 
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No thought found with this id!' }); // Handle not found scenario
             }
 
             res.json(thought); // Send the updated thought as a JSON response

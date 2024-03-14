@@ -20,7 +20,7 @@ module.exports = {
             const user = await User.findOne({ _id: req.params.userId }).populate('thoughts').populate('friends').select('-__v');
 
             if (!user) {
-                return res.status(404).json({ message: 'No user is here' }); // Handle not found scenario
+                return res.status(404).json({ message: 'User not found!' }); // Handle not found scenario
             }
 
             res.json(user); // Send the retrieved user as a JSON response
@@ -52,7 +52,7 @@ module.exports = {
             );
 
             if (!user) {
-                res.status(404).json({ message: 'No user with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No user found with this id!' }); // Handle not found scenario
             }
 
             res.json(user); // Send the updated user as a JSON response
@@ -68,7 +68,7 @@ module.exports = {
             const user = await User.findOneAndDelete({ _id: req.params.userId });
 
             if (!user) {
-                res.status(404).json({ message: 'No user with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No user found with this id!' }); // Handle not found scenario
             }
 
             await User.deleteMany({ _id: { $in: user.thoughts } });
@@ -89,7 +89,7 @@ module.exports = {
             );
 
             if (!user) {
-                res.status(404).json({ message: 'No user with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No user found with this id!' }); // Handle not found scenario
             }
 
             res.json(user); // Send the updated user as a JSON response
@@ -109,7 +109,7 @@ module.exports = {
             );
 
             if (!user) {
-                res.status(404).json({ message: 'No user with this id!' }); // Handle not found scenario
+                res.status(404).json({ message: 'No user found with this id!' }); // Handle not found scenario
             }
 
             res.json(user); // Send the updated user as a JSON response
